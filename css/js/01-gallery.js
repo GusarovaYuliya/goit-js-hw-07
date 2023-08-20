@@ -4,27 +4,21 @@ import { galleryItems } from './gallery-items.js';
 console.log(galleryItems);
 
 const listEl = document.querySelector(".gallery");
-
-const renderList = (arr) => {
-    const markup = arr
-    .map(
-        (item) => `<li class="gallery__item">
-        <a class="gallery__link" href="${item.original}">
-          <img
-            class="gallery__image"
-            src="${item.preview}"
-            data-source="large-image.jpg"
-            alt="&{item.description}"
-            width="340"
-          />
-        </a>
-      </li>`
-    )
-    .join("");
-
-    container.insertAdjacentHTML("beforeend", markup);
-};
-
+const renderList =  galleryItems.map(
+  (image) =>  `<li class="gallery_item">
+  <a class="gallery_link" href="${item.original}">
+  <img
+  class="gallery_image"
+  src="${item.preview}"
+  alt="${item.description}"
+  width="340"
+  />
+  </a>
+  </li>`
+);
+ const galleryHTML = renderList.join("");
+ listEl.insertAdjacentHTML("beforeend", galleryHTML);
+ 
 const handleListClick = (event) => {
 if (event.currentTurget === event.target) {
     return;
@@ -46,12 +40,6 @@ instanceModal.show()
 
 renderList(galleryItems);
 listEl.addEventListener("click", handleListClick);
-
-
-
-
-
-
 
 
 
