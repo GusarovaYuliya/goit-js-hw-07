@@ -5,19 +5,19 @@ console.log(galleryItems);
 
 const listEl = document.querySelector(".gallery");
 
-const renderList = (arr, container) => {
+const renderList = (arr) => {
     const markup = arr.map((item) => `<li class="gallery_item">
     <a class="gallery_link" href="${item.original}">
     <img
     class="gallery_image"
-    src="${item.previev}"
+    src="${item.preview}"
     alt="${item.description}"
-    width="360"
+    width="340"
     />
     </a>
     </li>`).join("");
 
-    container.insertAdjacentHTML("afterbegin", markup);
+    // container.insertAdjacentHTML("afterbegin", markup);
 }
 
-renderList(galleryItems, listEl);
+renderList(galleryItems);

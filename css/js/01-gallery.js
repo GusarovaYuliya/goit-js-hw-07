@@ -5,16 +5,17 @@ console.log(galleryItems);
 
 const listEl = document.querySelector(".gallery");
 
-const renderList = (arr, container) => {
+const renderList = (arr) => {
     const markup = arr
     .map(
         (item) => `<li class="gallery__item">
-        <a class="gallery__link" href="large-image.jpg">
+        <a class="gallery__link" href="${item.original}">
           <img
             class="gallery__image"
-            src="small-image.jpg"
+            src="${item.preview}"
             data-source="large-image.jpg"
-            alt="Image description"
+            alt="&{item.description}"
+            width="340"
           />
         </a>
       </li>`
@@ -43,7 +44,7 @@ const instanceModal = basicLightbox.create(`
 instanceModal.show()
 }
 
-renderList(galleryItems, listEl);
+renderList(galleryItems);
 listEl.addEventListener("click", handleListClick);
 
 
