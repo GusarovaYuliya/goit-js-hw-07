@@ -19,6 +19,7 @@ const renderList = galleryItems.map(
  listEl.insertAdjacentHTML("beforeend", galleryHTML);
  
 const handleListClick = (event) => {
+  event.preventDefault();
 if (event.currentTurget === event.target) {
     return;
 };
