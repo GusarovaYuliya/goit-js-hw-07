@@ -6,12 +6,12 @@ console.log(galleryItems);
 const listEl = document.querySelector(".gallery");
 const renderList = galleryItems.map(
   (item) => `<li class="gallery_item">
-  <a class="gallery_link" href="${item.original}">
+  <a class="gallery_link" href="large-image.jpg">
   <img
   class="gallery_image"
-  src="${item.preview}"
+  src="small-image.jpg"
+  data-sourse="large-image.jpg"
   alt="${item.description}"
-  width="340"
   />
   </a>
   </li>`
@@ -20,34 +20,35 @@ const renderList = galleryItems.map(
  listEl.insertAdjacentHTML("beforeend", galleryHTML);
  
 const handleListClick = (event) => {
+  event.preventDefault();
 if (event.currentTurget === event.target) {
-    return;
+  return;
 };
+
+
+
+// const form = document.querySelector(".register-form");
+
+// form.addEventListener("submit", (event) => {
+//   event.preventDefault();
+//   const {
+//     elements: { username, password }
+//   } = event.currentTarget;
+//   console.log(username.value, password.value);
+// });
+
 
 const currentListItem = event.target.closest(".gallery__item");
 
-const instanceModal = basicLightbox.create(`
-    <div class="modal">
-        <p>
-            Your first lightbox with just a few lines of code.
-            Yes, it's really that simple.
-        </p>
-    </div>
-`)
 
-instanceModal.show()
-
-const instance = basicLightbox.create(`
-    <img src="assets/images/image.png" width="800" height="600">
-`)
-
-instance.show()
+const form = document.querySelector(".register-form");
 
 
-}
+};
 
 // renderList(galleryItems);
 listEl.addEventListener("click", handleListClick);
+
 
 
 
