@@ -38,7 +38,7 @@ const instanceModal = basicLightbox.create(`
 instanceModal.show()
 }
 
-renderList(galleryItems);
+// renderList(galleryItems);
 listEl.addEventListener("click", handleListClick);
 
 
