@@ -3,9 +3,12 @@ import { galleryItems } from './gallery-items.js';
 
 console.log(galleryItems);
 
+
+
+  
 const listEl = document.querySelector(".gallery");
 const renderList =  galleryItems.map(
-  (image) =>  `<li class="gallery_item">
+  (item) =>  `<li class="gallery_item">
   <a class="gallery_link" href="${item.original}">
   <img
   class="gallery_image"
