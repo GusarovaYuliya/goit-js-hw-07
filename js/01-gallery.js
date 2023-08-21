@@ -9,8 +9,8 @@ const renderList = galleryItems.map(
   <img
   class="gallery_image"
   src="${item.preview}"
+  data-sourse="${item.original}"
   alt="${item.description}"
-  width="340"
   />
   </a>
   </li>`
@@ -24,25 +24,20 @@ if (event.currentTurget === event.target) {
     return;
 };
 
-const currentListItem = event.target.closest(".gallery__item");
+const currentListItem = event.target;
+const imageItem = currentListItem.dataset.source;
 
-const instanceModal = basicLightbox.create(`
-    <div class="modal">
-        <p>
-            Your first lightbox with just a few lines of code.
-            Yes, it's really that simple.
-        </p>
-    </div>
-`)
+const instance = basicLightbox.create(`
+<div class="modal">
+<img 
+class="gallery_image"
+src="${imageItem}" 
+alt="${currentListItem.alt}" width="800" height="600">
+</div>`)
+instance.show();
 
-instanceModal.show()
-
-  const instance = basicLightbox.create(`
-    <img src="assets/images/image.png" width="800" height="600">
-`)
-
-instance.show()
-}
+};
 
 // renderList(galleryItems);
 listEl.addEventListener("click", handleListClick);
+  
