@@ -10,18 +10,16 @@ const renderList = galleryItems
   return `<li class="gallery__item">
   <a class="gallery__link" href="large-image.jpg">
   <img
-<<<<<<< HEAD
   class="gallery__image"
   src="${preview}"
   data-sourse="${original}"
   alt="${description}"
-=======
+
   class="gallery_image"
   src="${item.preview}"
   data-sourse="${item.original}"
   alt="${item.description}"
   width="360"
->>>>>>> f33b01c9a338b152c598f2aecd976c2954a4e5ff
   />
   </a>
   </li>`;
@@ -35,7 +33,6 @@ const renderList = galleryItems
 function handleListClick(e) {
   event.preventDefault();
 
-<<<<<<< HEAD
 if (e.target.nodeName !== "IMG") {
   return;
 }
@@ -62,22 +59,6 @@ function onKeyDown(e) {
   instance.close();
 }
 }
-=======
-const currentListItem = event.target;
-const imageItem = currentListItem.dataset.source;
 
-const instance = basicLightbox.create(`
-<div class="modal">
-<img 
-class="gallery_image"
-src="${imageItem}" 
-alt="${currentListItem.alt}" width="800" height="600">
-</div>`)
-instance.show();
 
-};
 
-// renderList(galleryItems);
-listEl.addEventListener("click", handleListClick);
-  
->>>>>>> f33b01c9a338b152c598f2aecd976c2954a4e5ff
