@@ -14,12 +14,6 @@ const renderList = galleryItems
   src="${preview}"
   data-sourse="${original}"
   alt="${description}"
-
-  class="gallery_image"
-  src="${item.preview}"
-  data-sourse="${item.original}"
-  alt="${item.description}"
-  width="360"
   />
   </a>
   </li>`;
