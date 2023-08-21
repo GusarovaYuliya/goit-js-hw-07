@@ -22,7 +22,7 @@ const renderList = galleryItems
 
  listEl.insertAdjacentHTML("beforeend", renderList);
  
- listEl.addEventListener("click", imageClick);
+ listEl.addEventListener("click", handleListClick);
 
 function handleListClick(e) {
   event.preventDefault();
