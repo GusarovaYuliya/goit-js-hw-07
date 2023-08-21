@@ -11,6 +11,7 @@ const renderList = galleryItems.map(
   src="${item.preview}"
   data-sourse="${item.original}"
   alt="${item.description}"
+  width="360"
   />
   </a>
   </li>`
