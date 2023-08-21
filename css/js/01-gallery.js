@@ -6,43 +6,39 @@ console.log(galleryItems);
 const listEl = document.querySelector(".gallery");
 const renderList = galleryItems.map(
   (item) => `<li class="gallery_item">
-  <a class="gallery_link" href="large-image.jpg">
+  <a class="gallery_link" href="${item.original}">
   <img
   class="gallery_image"
-  src="small-image.jpg"
-  data-sourse="large-image.jpg"
+  src="${item.preview}"
+  data-sourse="${item.original}"
   alt="${item.description}"
   />
   </a>
   </li>`
 );
+
  const galleryHTML = renderList.join("");
  listEl.insertAdjacentHTML("beforeend", galleryHTML);
  
+
+
 const handleListClick = (event) => {
   event.preventDefault();
 if (event.currentTurget === event.target) {
   return;
 };
 
+const currentListItem = event.target;
+const imageItem = currentListItem.dataset.source;
 
-
-// const form = document.querySelector(".register-form");
-
-// form.addEventListener("submit", (event) => {
-//   event.preventDefault();
-//   const {
-//     elements: { username, password }
-//   } = event.currentTarget;
-//   console.log(username.value, password.value);
-// });
-
-
-const currentListItem = event.target.closest(".gallery__item");
-
-
-const form = document.querySelector(".register-form");
-
+const instance = basicLightbox.create(`
+<div class="modal">
+<img 
+class="gallery_image"
+src="${imageItem}" 
+alt="${currentListItem.alt}" width="800" height="600">
+</div>`)
+instance.show();
 
 };
 
