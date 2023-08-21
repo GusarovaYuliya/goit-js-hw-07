@@ -4,18 +4,23 @@ import { galleryItems } from './gallery-items.js';
 console.log(galleryItems);
 
 const listEl = document.querySelector(".gallery");
-const renderList = galleryItems.map(
-  (item) => `<li class="gallery__item">
-  <a class="gallery__link" href="${item.original}">
+const renderList = galleryItems
+.map(({ preview, original, description }) => {
+  return `<li class="gallery__item">
+  <a class="gallery__link" href="${original}">
   <img
   class="gallery__image"
-  src="${item.preview}"
-  alt="${item.description}"
+  src="${preview}"
+  alt="${description}"
   />
   </a>
-  </li>`
-);
- const galleryHTML = renderList.join("");
- listEl.insertAdjacentHTML("beforeend", galleryHTML);
+  </li>`;
+})
+.join("");
 
- 
+ listEl.insertAdjacentHTML("beforeend", renderList);
+
+ const lightbox = new SimpleLightbox('.gallery a', { /* options */
+captionsData: "alt",
+captionDelay: 250,
+ });
