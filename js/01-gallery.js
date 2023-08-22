@@ -25,14 +25,14 @@ const renderList = galleryItems
  listEl.addEventListener("click", handleListClick);
 
 function handleListClick(e) {
-  event.preventDefault();
+  e.preventDefault();
 
 if (e.target.nodeName !== "IMG") {
   return;
 }
 
 const instance = basicLightbox.create(
-  `<img src="${e.target.dataset.source}" width="800" height="600">`,
+  `<img src="${e.target.dataset.sourse}" width="800" height="600">`,
 {
 
   onShow() {
